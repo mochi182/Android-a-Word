@@ -1,15 +1,15 @@
 import os
 import docx
 import sys
+import getpass
 
 # ---------- Declaraciones ----------
-user = input("Ingresa el user de la PC")
+user = getpass.getuser()
 ruta_de_proyectos = "C:\\Users\\{}\\AndroidStudioProjects".format(user)
 escritorio = "C:\\Users\\{}\\Desktop".format(user)
-try:
-    os.mkdir(os.path.join(escritorio, "Android a Word"))
-except:
-    pass
+# Usuarios de Mac:
+# ruta_de_proyectos = "//Users//{}//AndroidStudioProjects".format(user)
+# escritorio = "//Users//{}//Desktop".format(user)
 
 def filtro_por_extension(nombre):
     extensiones_a_incluir = [".java", ".xml", ".png", ".jpg", ".mp3", ".mp4"]
@@ -44,6 +44,11 @@ def es_mp4(nombre):
 
 # ---------- Ejecución ----------
 
+try:
+    os.mkdir(os.path.join(escritorio, "Android a Word"))
+except:
+    pass
+
 # Obtener lista de proyectos de Android -->
 try:
     os.chdir(ruta_de_proyectos)
@@ -72,8 +77,9 @@ for proyecto_i in proyectos:
                     archivos_1[name] = os.path.join(root, name)
 
     # Copiar contenido de archivos al documento -->
+    document.add_heading(proyecto_i, level=1)
     for i in archivos_1:
-        document.add_heading(i, level=1)
+        document.add_heading(i, level=2)
         if es_imagen(i):
             document.add_picture(archivos_1[i], width=docx.shared.Inches(1.25))
         elif es_mp3(i):
