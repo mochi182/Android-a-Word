@@ -2,3 +2,4 @@
 - Ejecutar
 - Revisar cada Word, por si acaso :p
 - !: Usuarios de mac, cambiar \\ por // en las rutas
+- Versión Android a Word a PDF: https://github.com/sirArthurDayne/Android-to-Word-and-PDF
