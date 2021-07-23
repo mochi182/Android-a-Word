@@ -1,4 +1,4 @@
-- Instalar librería docx: pip install docx
+- Instalar librería docx: pip install python-docx 
 - Ejecutar
 - Revisar cada Word, por si acaso :p
 - !: Usuarios de mac, cambiar \\ por // en las rutas
